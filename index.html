@@ -57,6 +57,7 @@ CASCADE BOS | Tues., November 18 @ HBR
 by **Kevin Newman, Daigo Fujiwara, Fred Lalande and Matt Wagner**
 
 ![img](img/hbr_logo.svg)
+
 ---
 
 # Welcome
@@ -69,24 +70,18 @@ The team developed a solution on top of github-hosted Vagrant virtual machine co
 
 HBR developers Kevin Newman, Daigo Fujiwara, Matt Wagner, and Fred Lalande will talk about the process and tools they used.]
 
-
 ---
-name: inverse
 class: center, middle, inverse
-# HBR redesign overview
 
+# HBR redesign overview
 
 ---
 class: center, middle
 
 # Responsive Web Design
 
-
 ---
-
-
 ### Before
-
 
 ![img](img/old-site.png)
 
@@ -95,7 +90,6 @@ class: center, middle
 ### After
 
 ![img](img/am-i-responsive.png)
-
 
 ---
 class: middle
@@ -119,31 +113,30 @@ class: middle
 ---
 class: middle
 
-
 ### Dependencies: 
 * Pattern Lab = PHP +  Apache 
 * Grunt, Bower = Node.js
 * Sass/Compass = Ruby
 
+---
+class: center, middle
+
+## Daigo Fujiwara
 
 ---
 class: center, middle
 
-
-## Daigo Fujiwara
-
-
----
 ![img](img/sass.png)
 
 ---
 class: center
+
 Old site - homepage only 77 KB, but **16 HTTP request** for stylesheets 
 ![img](img/old-hbr-css.png)
 
-
 ---
 class: center
+
 New site - homepage (and ALL the other pages) **ONE http request** cached by Amazon cloudfront (but large, 180 KB)
 ![img](img/new-hbr-css.png)
 
@@ -155,13 +148,11 @@ class: center, middle
 ---
 class: center, middle, inverse
 
-
 # Object-Oriented CSS 
-
-
 
 ---
 class: middle
+
 ## Object-oriented CSS, or OOCSS. 
 
 A term and methodology coined by Nicole Sullivan
@@ -189,12 +180,7 @@ class: middle
 
 # Single responsibility principle 
 
-### **code that does one job, one job only, and one job very well.**
-
----
-class: center, middle
-
-### Next step: Taking that reusable, scalable css object into grouped HTML object?  
+### **Code that does one job, one job only, and one job very well.**
 
 ---
 class: center, middle, inverse
@@ -209,10 +195,9 @@ Created by **Brad Frost**, creator of [this is responsive](http://bradfrost.gith
 ### Atomic web design is a methodology used to construct web design systems. 
 
 ---
-
 class: center, middle
-![img](img/atomic-web-design.gif)
 
+![img](img/atomic-web-design.gif)
 
 ---
 class: middle
@@ -231,29 +216,42 @@ class: middle
 # **EMBRACE THE FLUIDITY OF THE WEB!**
 
 ### Instead of page-based designs, we need **design systems**. 
----
 
+---
 class: center, middle
+
 ![img](img/atomic-web-design.gif)
 **Atoms** on the Web are HTML elements like: h1, p, div, button, etc. More abstract atoms include colors and fonts. Combining atoms, you get **molecules**, molecules create **organisms**, and so on. 
 
-Each of them is **on its own, responsive**. 
+---
+class: middle
+
+![img](img/atomic-web-design.gif)
+
+## Each of them is **on its own, responsive**. 
 
 ---
 class: middle
 
 ![img](img/atomic-web-design.gif)
-Think of molecules and organisms as **Lego-like building blocks** designed to be combined together. Combined, they become **templates**, and ultimately **pages**. 
+Think of molecules and organisms as **Lego-like building blocks** designed to be combined together. 
 
-Atomic design allows us to traverse from abstract to concrete (in context), so you can find reusable pieces / building-blocks more easily, and only evolve certain section of the page.  
+Combined, they become **templates**, and ultimately **pages**. 
+---
+class: middle
+
+![img](img/atomic-web-design.gif)
+
+Atomic design allows us to **traverse from abstract to concrete** (in context), so you can find reusable pieces / building-blocks more easily, and only evolve certain section of the page.  
 
 ---
 class: center, middle, inverse
-# Front end Style Guide
 
+# Front end Style Guide
 
 ---
 class: middle
+
 ### A browser-based web front-end style guide, an interface inventory, or pattern library, can help us with:
 * Design Consistency
 * Code Standards (i.e. html structure, css class names)
@@ -261,6 +259,7 @@ class: middle
 
 ---
 class: middle
+
 ### Benefits of a front-end style guide
 
 * Being able to test responsive design ("Where does this design break?")
@@ -272,6 +271,7 @@ Adapted from [Front-end Style Guides](http://24ways.org/2011/front-end-style-gui
 
 ---
 class: middle
+
 ## Examples of front-end style guide
 * [BBC](http://www.bbc.co.uk/gel)
 * [Starbucks](http://www.starbucks.com/static/reference/styleguide/)
@@ -280,6 +280,7 @@ class: middle
 
 ---
 class: middle
+
 ### Those style guides are great, but...
 * Time consuming to create
 * Seen only as a designer/developer tool
@@ -288,16 +289,18 @@ class: middle
 
 ---
 class: middle, center
-## Instead of writing style guide after redesign is finished, we built &amp; tested small building-blocks that later **_became_** our front-end style guide.
 
+## Instead of writing style guide after redesign is finished, we built &amp; tested small building-blocks that later **_became_** our front-end style guide.
 
 ---
 class: middle, center
+
 ![img](img/pattern-lab.png)
 
 ---
 
 class: middle, center
+
 ## Fred Lalande
 
 ---
@@ -307,31 +310,81 @@ class: center, middle, inverse
 
 ---
 class: middle
+
 ![img](img/pattern-lab.png)
 [patternlab.io](http://patternlab.io)
 
-An open sourced tool to create the Atomic Web Design system that will become the "living" front-end style guide. 
+Pattern Lab is a collection of tools to help you create atomic design systems.
 
-(also created by Brad Frost. Maintained by Dave Olsen on github)
+It's an open sourced tool to create the Atomic Web Design system that will become your site's "living" front-end style guide and pattern library.
 
----
-class: middle
-## What did Pattern-Lab give us?
-* Visual library of building blocks
-* View-port resizer
-* Code viewer / Template creator (using mustache)
+Think of molecules and organisms as Lego-like building blocks designed to be combined together.
 
 ---
 class: middle
+## What does Pattern-Lab give us?
 
-## Creation process 
+- Visual library of building blocks
+- View-port resizer
+- Annotation and Code viewer
+- NOT language-dependent (write HTML, CSS and JavaScript however you want)
 
 ---
+class: middle
 
-class: middle, center
-# Build systems, not pages
-From [Why](http://patternlab.io) section of patternlab
+## Why Pattern Lab?
 
+**Build systems, not pages**
+
+---
+class: middle
+
+**The need for modularity**
+- Component-driven design
+- It's essential to consider how every thing you include in an interface looks and functions across a whole slew of browsers, devices, and environments.
+
+---
+class: middle
+
+**A better workflow**
+- Pattern libraries create a shared vocabulary between disciplines, make testing easier, and build a canonical reference to keep coming back to.
+
+---
+class: middle
+
+**Tiny Bootstraps, for Every Client/Project**
+- Responsive deliverables need to be more than an ad hoc collection of pages. 
+- Create a custom design system with which clients/colleagues can modify, extend, and grow with into the future.
+
+---
+class: middle
+
+## Who is it for?
+
+---
+class: middle
+
+**Information Designers**
+- Integrate modular thinking into the design process right out of the gate, and helps demonstrate responsive patterns to create.
+
+**Visual Designers**
+- Way to see how each module works in a responsive environment
+
+---
+class: middle
+
+**Developers**
+- Efficient system for quickly developing prototypes and production-ready front-end code.
+
+**Clients and managers**
+- Can view the project in the browser, as a review, and as a reference.
+
+---
+class: middle
+
+## One URL to Rule Them All
+
+Pattern Lab can serve as a hub for your project and should live in an environment accessible via a URL where everyone involved with your project can view the design system.
 
 ---
 class: center, middle, inverse
@@ -339,6 +392,7 @@ class: center, middle, inverse
 # Zurb Foundation
 
 ---
+class: middle
 
 ![img](img/foundation.svg)
 http://foundation.zurb.com/
@@ -346,46 +400,84 @@ http://foundation.zurb.com/
 ---
 class: middle
 
-### Foundation strength
-* Written in SASS
-* Open Source/large community
-* Well documented
-* Mobile First grid system
-* Built in media query
-* rem based units
-* Loaded via Bower
+- Written in SASS
+- Loaded via Bower
+- Mobile first grid system
+- Built in media query
+- Open Source -- **Daigo** even contributed with a pull request
+- Rem based units
+- Very well documented [foundation.zurb.com/docs/](http://foundation.zurb.com/docs/)
+
+---
+class: middle
+
+**Grid**
+
+[foundation.zurb.com/docs/components/grid.html](http://foundation.zurb.com/docs/components/grid.html)
+
+- Create powerful multi-device layouts quickly and easily with the default 12-column, nest-able Foundation grid. 
+- Foundation is mobile-first. Code for small screens first, and larger devices will inherit those styles. Customize for larger screens as necessary.
+
+---
+class: middle
+
+**Utility Classes**
+
+[foundation.zurb.com/docs/utility-classes.html](http://foundation.zurb.com/docs/utility-classes.html)
+
+- Foundation includes a handful of helpful utility classes to add certain behaviors to your elements.
+
+---
+class: middle
+
+**Why not bootstrap?** 
+
+- Less design to override
+- Bootstrap creator Mark Otto used to work for ZURB. (Now he works for GitHub)
 
 ---
 class: middle, center
+
 # But _team_ workflow?
 
+---
+class: middle, center
+
+## Matt Wagner
 
 ---
 class: middle, center
-## Matt Wagner
 
-
----
 ![img](img/vagrant.png)
 
 ---
+class: middle, center
+
 ![img](img/github.png)
 
 ---
+class: middle, center
+
 ![img](img/wordpress.png)
 
 ---
+class: middle, center
+
 ![img](img/grunt.png)
 
 ---
+class: middle, center
 
 ![img](img/jenkins.png)
 
 ---
+class: middle, center
 
 ![img](img/puppet.jpg)
 
 ---
+class: middle, center
+
 ![img](img/bower.png)
 
 ---
