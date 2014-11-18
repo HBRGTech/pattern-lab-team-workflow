@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SASS and Pattern-Lab team workflow</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(//fonts.googleapis.com/css?family=Raleway:300,700,500);
+      @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+      @import url(//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { 
+        font-family: 'Raleway'; 
+        font-weight: 300;
+        line-height: 1.4;
+      }
+      .bold {
+       font-weight: 700;
+      }
+      h1, h2, h3 {
+        font-family: 'Raleway';
+        font-weight: 500;
+        line-height: 1.2;
+      }
+      img {
+        max-width: 100%;
+        max-height: 500px;
+      }
+      .inverse {
+        background: #000;
+        color: #999;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #fff;
+        line-height: 0.8em;
+      }
+      .remark-code, .remark-inline-code { 
+        font-family: 'Ubuntu Mono'; 
+      }
+      .remark-slide-content {
+        font-size:30px;
+      }
+      .small {
+        font-size:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# SASS and Pattern-Lab team workflow using Vagrant/Puppet
+
+CASCADE BOS | Tues., November 18 @ HBR
+
+by **Kevin Newman, Daigo Fujiwara, Fred Lalande and Matt Wagner**
+
+![img](img/hbr_logo.svg)
+---
+
+# Welcome
+
+HBR.org’s redesigned website launched on November 10. 
+
+.small[The HBR Tech team wanted to take advantage of css pre-processing and other recent technologies, but with multiple developers in different environments (Mac, PC and Linux), they faced a workflow challenge.
+
+The team developed a solution on top of github-hosted Vagrant virtual machine configurations packaging everything from ubuntu to sass compilation managed by grunt, all to power local Pattern Lab environments.
+
+HBR developers Kevin Newman, Daigo Fujiwara, Matt Wagner, and Fred Lalande will talk about the process and tools they used.]
+
+
+---
+name: inverse
+class: center, middle, inverse
+# HBR redesign overview
+
+
+---
+class: center, middle
+
+# Responsive Web Design
+
+
+---
+
+
+### Before
+
+
+![img](img/old-site.png)
+
+---
+
+### After
+
+![img](img/am-i-responsive.png)
+
+
+---
+class: middle
+
+### Tools and approaches:
+* SCSS (build using grunt "grunt-contrib-compass")
+* Atomic Web Design/Pattern Lab
+* Modular CSS / Object Oriented CSS approach
+* Zurb Foundation 
+* Require.js to r.js AMD javascript (JavaScrpt will not be covered in this talk)
+
+---
+class: middle
+
+### What made it possible:
+* Github 
+* Vagrant
+* Jenkins 
+* Grunt 
+
+---
+class: middle
+
+
+### Dependencies: 
+* Pattern Lab = PHP +  Apache 
+* Grunt, Bower = Node.js
+* Sass/Compass = Ruby
+
+
+---
+class: center, middle
+
+
+## Daigo Fujiwara
+
+
+---
+![img](img/sass.png)
+
+---
+class: center
+Old site - homepage only 77 KB, but **16 HTTP request** for stylesheets 
+![img](img/old-hbr-css.png)
+
+
+---
+class: center
+New site - homepage (and ALL the other pages) **ONE http request** cached by Amazon cloudfront (but large, 180 KB)
+![img](img/new-hbr-css.png)
+
+---
+class: center, middle
+
+## Our **main goal** going into the redesign was to write _reusable, flexible, scalable, modular, pattern-based_, front-end code. 
+
+---
+class: center, middle, inverse
+
+
+# Object-Oriented CSS 
+
+
+
+---
+class: middle
+## Object-oriented CSS, or OOCSS. 
+
+A term and methodology coined by Nicole Sullivan
+
+[github.com/stubbornella/oocss/wiki](https://github.com/stubbornella/oocss/wiki)
+
+---
+class: center, middle
+### Instead of one monolithic piece of code to complete tasks ABC, you’d end up with **each of A , B and C** abstracted into its own object. Now we’d have A which we can combine with either B or C in any order we choose.
+
+  -- _Harry Roberts_ 
+---
+class: middle
+
+# Two rules 
+
+1.  **Separate "Structure" and "Skin"**
+     - Structure contains core of an object and skin extends its visual representation. 
+2.  **Separate "Container" and "Content"**
+      - Avoid location-dependent styles. 
+
+
+---
+class: middle
+
+# Single responsibility principle 
+
+### **code that does one job, one job only, and one job very well.**
+
+---
+class: center, middle
+
+### Next step: Taking that reusable, scalable css object into grouped HTML object?  
+
+---
+class: center, middle, inverse
+
+# Atomic Web Design 
+
+---
+class: middle
+
+Created by **Brad Frost**, creator of [this is responsive](http://bradfrost.github.io/this-is-responsive/) pattern library 
+
+### Atomic web design is a methodology used to construct web design systems. 
+
+---
+
+class: center, middle
+![img](img/atomic-web-design.gif)
+
+
+---
+class: middle
+
+### Designing **"Web pages"** doesn't make sense anymore. 
+
+### With different screen sizes, pixel perfection &amp; designing the same experience for "all devices" is not possible.
+
+But our reality still consists of design review meetings where people look over static mock-ups.
+
+---
+class: middle
+
+### Web sites are living things that fill a variety of containers.
+
+# **EMBRACE THE FLUIDITY OF THE WEB!**
+
+### Instead of page-based designs, we need **design systems**. 
+---
+
+class: center, middle
+![img](img/atomic-web-design.gif)
+**Atoms** on the Web are HTML elements like: h1, p, div, button, etc. More abstract atoms include colors and fonts. Combining atoms, you get **molecules**, molecules create **organisms**, and so on. 
+
+Each of them is **on its own, responsive**. 
+
+---
+class: middle
+
+![img](img/atomic-web-design.gif)
+Think of molecules and organisms as **Lego-like building blocks** designed to be combined together. Combined, they become **templates**, and ultimately **pages**. 
+
+Atomic design allows us to traverse from abstract to concrete (in context), so you can find reusable pieces / building-blocks more easily, and only evolve certain section of the page.  
+
+---
+class: center, middle, inverse
+# Front end Style Guide
+
+
+---
+class: middle
+### A browser-based web front-end style guide, an interface inventory, or pattern library, can help us with:
+* Design Consistency
+* Code Standards (i.e. html structure, css class names)
+* Responsive Web Design
+
+---
+class: middle
+### Benefits of a front-end style guide
+
+* Being able to test responsive design ("Where does this design break?")
+* Improved workflow (Feedback / collaboration "Designing/deciding in the browser.")
+* Shared vocabulary (Design/Tech/Edit "What do you call this building block?")
+* Future reference ("What's available? What needs to be designed/coded next?")
+
+Adapted from [Front-end Style Guides](http://24ways.org/2011/front-end-style-guides/) by Anna Debenham
+
+---
+class: middle
+## Examples of front-end style guide
+* [BBC](http://www.bbc.co.uk/gel)
+* [Starbucks](http://www.starbucks.com/static/reference/styleguide/)
+* [Yelp](http://www.yelp.com/styleguide)
+* [Debenham's style guide collection](https://gimmebar.com/collection/4ecd439c2f0aaad734000022/front-end-styleguides-and-pattern-libraries)
+
+---
+class: middle
+### Those style guides are great, but...
+* Time consuming to create
+* Seen only as a designer/developer tool
+* Often too abstract
+* Often too incomplete and/or out-of-date
+
+---
+class: middle, center
+## Instead of writing style guide after redesign is finished, we built &amp; tested small building-blocks that later **_became_** our front-end style guide.
+
+
+---
+class: middle, center
+![img](img/pattern-lab.png)
+
+---
+
+class: middle, center
+## Fred Lalande
+
+---
+class: center, middle, inverse
+
+# Pattern Lab 
+
+---
+class: middle
+![img](img/pattern-lab.png)
+[patternlab.io](http://patternlab.io)
+
+An open sourced tool to create the Atomic Web Design system that will become the "living" front-end style guide. 
+
+(also created by Brad Frost. Maintained by Dave Olsen on github)
+
+---
+class: middle
+## What did Pattern-Lab give us?
+* Visual library of building blocks
+* View-port resizer
+* Code viewer / Template creator (using mustache)
+
+---
+class: middle
+
+## Creation process 
+
+---
+
+class: middle, center
+# Build systems, not pages
+From [Why](http://patternlab.io) section of patternlab
+
+
+---
+class: center, middle, inverse
+
+# Zurb Foundation
+
+---
+
+![img](img/foundation.svg)
+http://foundation.zurb.com/
+
+---
+class: middle
+
+### Foundation strength
+* Written in SASS
+* Open Source/large community
+* Well documented
+* Mobile First grid system
+* Built in media query
+* rem based units
+* Loaded via Bower
+
+---
+class: middle, center
+# But _team_ workflow?
+
+
+---
+class: middle, center
+## Matt Wagner
+
+
+---
+![img](img/vagrant.png)
+
+---
+![img](img/github.png)
+
+---
+![img](img/wordpress.png)
+
+---
+![img](img/grunt.png)
+
+---
+
+![img](img/jenkins.png)
+
+---
+
+![img](img/puppet.jpg)
+
+---
+![img](img/bower.png)
+
+---
+
+    </textarea>
+    <script src="//gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
