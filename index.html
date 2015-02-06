@@ -92,6 +92,26 @@ class: center, middle
 ![img](img/am-i-responsive.png)
 
 ---
+class: center, middle
+
+## Not a new idea
+
+---
+class: center, middle
+
+# It's Easy... 
+```css
+    @media (min-width:500px) { ... }
+```
+
+---
+class: center, middle
+
+# ...or is it?
+
+Not just code, but an approach
+
+---
 class: middle
 
 ### Tools and approaches:
@@ -175,6 +195,42 @@ class: middle
 2.  **Separate "Container" and "Content"**
       - Avoid location-dependent styles. 
 
+---
+class: center, middle
+
+#Helper classes
+
+
+---
+class: center, middle
+## Example: 
+```html
+    <button class="button">Submit</button>
+```
+OR
+```html
+    <button class="button letter-spacing-neutral">
+      Button with lots of words in them
+    </button>
+```
+---
+class: center, middle
+
+##Example: Spacing helpers 
+
+Use following 3-letter combination for a class name
+
+.small[
+`p, m` = padding, margin
+
+`a, t, r, b, l, h, v` = all, top, right, bottom, left, horizontal, vertical
+
+`s, m, l, n` = small(6px), medium(12px), large(24px), none(0px)]
+
+```html
+    <div class="mtl">margin top large</button>
+```
+From <a href="https://github.com/kianoshp/SASS-CSS-Boilerplate/blob/master/sass/padding-margin.scss" target="_blank">Kianosh Pourian's CSS-SASS Boilerplate</a>
 
 ---
 class: middle
@@ -276,6 +332,7 @@ Adapted from [Front-end Style Guides](http://24ways.org/2011/front-end-style-gui
 class: middle
 
 ## Examples of front-end style guide
+* [StyleGuides.io](http://styleguides.io/)
 * [BBC](http://www.bbc.co.uk/gel)
 * [Starbucks](http://www.starbucks.com/static/reference/styleguide/)
 * [Yelp](http://www.yelp.com/styleguide)
@@ -322,8 +379,7 @@ Pattern Lab is a collection of tools to help you create atomic design systems.
 
 It's an open sourced tool to create the Atomic Web Design system that will become your site's "living" front-end style guide and pattern library.
 
-Think of molecules and organisms as Lego-like building blocks designed to be combined together.
-
+Written in PHP, hosted at [github](https://github.com/pattern-lab/patternlab-php)
 ---
 class: middle
 ## What does Pattern-Lab give us?
@@ -389,6 +445,14 @@ class: middle
 ## One URL to Rule Them All
 
 Pattern Lab can serve as a hub for your project and should live in an environment accessible via a URL where everyone involved with your project can view the design system.
+
+---
+class: middle
+
+## Demo
+
+[demo.patternlab.io](http://demo.patternlab.io/)
+
 
 ---
 class: center, middle, inverse
